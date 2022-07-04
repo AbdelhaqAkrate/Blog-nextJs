@@ -47,11 +47,31 @@ export default function Home(results) {
             }
           }
          }>
-        <Stack maxWidth="300px" isInline mb={8}>
-          <Input placeholder = "Search ..." border="none" value={search} onChange={(e)=>setSearch(e.target.value)}></Input>
-          <IconButton colorScheme="green" arial-label="Search Database" icon={<SearchIcon/>} disabled={search===""} type="submit"></IconButton>
-          <IconButton colorScheme="blue" arial-label="Reset Button" icon={<CloseIcon/>} disable={search ===""} onclick = {async () => {setSearch(""); setCharacters(initialState.characters)}} />
-        </Stack>
+          <Stack maxWidth="350px" width="100%" isInline mb={8}>
+            <Input
+              placeholder="Search"
+              value={search}
+              border="none"
+              onChange={(e) => setSearch(e.target.value)}
+            ></Input>
+            <IconButton
+              colorScheme="blue"
+              aria-label="Search database"
+              icon={<SearchIcon />}
+              disabled={search === ""}
+              type="submit"
+            />
+            <IconButton
+              colorScheme="red"
+              aria-label="Reset "
+              icon={<CloseIcon />}
+              disabled={search === ""}
+              onClick={async () => {
+                setSearch("");
+                setCharacters(intialState.characters);
+              }}
+            />
+          </Stack>
       </form>
      <Box mb={4} flexDirectio n="column" align="center" justify="center" py={8}>
       <Heading as="h1" size="2x1" mb={8}>Rick and Morty</Heading>
